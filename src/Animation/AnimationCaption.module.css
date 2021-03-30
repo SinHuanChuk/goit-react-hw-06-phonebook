@@ -1,0 +1,8 @@
+.appear {
+    transform: translateY(-150%);
+}
+
+.appearActive {
+    transform: translateY(0);
+    transition: all 250ms ease-in;
+}
