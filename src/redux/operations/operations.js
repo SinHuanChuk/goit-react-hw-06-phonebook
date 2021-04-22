@@ -5,7 +5,10 @@ const addPost = (name, phone) => (dispatch) => {
   dispatch(actions.addRequest());
 
   axios
-    .post("http://localhost:4000/array", { name, phone })
+    .post(
+      "https://my-json-server.typicode.com/SinHuanChuk/goit-react-hw-06-phonebook/array",
+      { name, phone }
+    )
     .then(({ data }) => {
       return dispatch(actions.addSuccess(data.id, data.name, data.phone));
     })
@@ -16,7 +19,9 @@ const fetchTask = () => (dispatch) => {
   dispatch(actions.fetchRequest());
 
   axios
-    .get("http://localhost:4000/array")
+    .get(
+      "https://my-json-server.typicode.com/SinHuanChuk/goit-react-hw-06-phonebook/array"
+    )
     .then(({ data }) => {
       return dispatch(actions.fetchSuccess(data));
     })
@@ -27,7 +32,9 @@ const deleteTask = (id) => (dispatch) => {
   dispatch(actions.deleteRequest());
 
   axios
-    .delete(`http://localhost:4000/array/${id}`)
+    .delete(
+      `https://my-json-server.typicode.com/SinHuanChuk/goit-react-hw-06-phonebook/array/${id}`
+    )
     .then(() => dispatch(actions.deleteSuccess(id)))
     .catch((err) => dispatch(actions.deleteError(err)));
 };
