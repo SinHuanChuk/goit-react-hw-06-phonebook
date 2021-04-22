@@ -1,16 +1,49 @@
 import { createAction } from "@reduxjs/toolkit";
-import { v4 as uuidv4 } from "uuid";
 
-const addTaskAction = createAction('app/addTaskAction', (name, phone) => ({
-    payload: {
-        id: uuidv4(),
-        name,
-        phone,
-    }
-}))
+const addRequest = createAction("app/Request");
 
-const getFilterNameAction = createAction('app/getFiltredName', (text) => ({payload: {text}}))
-const getDeleteElementAction = createAction('app/getDeleteElement', (id) => ({payload: {id}}))
-const visibleAlertAction = createAction('app/visibleAlert', (value) => ({payload: {value}}))
+const addSuccess = createAction("app/Success", (id, name, phone) => ({
+  payload: {
+    id,
+    name,
+    phone,
+  },
+}));
 
-export default {addTaskAction, getFilterNameAction, getDeleteElementAction, visibleAlertAction}
+const addError = createAction("app/Error");
+
+const fetchRequest = createAction("app/fetchRequest");
+
+const fetchSuccess = createAction("app/fetchSuccess");
+
+const fetchError = createAction("app/fetchError");
+
+const deleteRequest = createAction("app/deleteRequest");
+
+const deleteSuccess = createAction("app/deleteSuccess", (id) => ({
+  payload: { id },
+}));
+
+const deleteError = createAction("app/deleteError");
+
+const getFilterNameAction = createAction("app/getFiltredName", (text) => ({
+  payload: { text },
+}));
+
+const visibleAlertAction = createAction("app/visibleAlert", (value) => ({
+  payload: { value },
+}));
+
+export default {
+  getFilterNameAction,
+  visibleAlertAction,
+  addRequest,
+  addSuccess,
+  addError,
+  fetchRequest,
+  fetchSuccess,
+  fetchError,
+  deleteRequest,
+  deleteSuccess,
+  deleteError,
+};
