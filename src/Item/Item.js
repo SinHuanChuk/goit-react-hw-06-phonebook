@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import operations from "../redux/operations/operations";
 
 const Item = ({ name, phone, id, deleteTask }) => {
-  console.log('item re-render', name)
+
   return (
     <li key={id} id={id} className={styles.listItem}>
       <p className={styles.text}>{name}</p>

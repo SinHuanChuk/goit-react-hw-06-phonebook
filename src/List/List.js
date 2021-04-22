@@ -5,6 +5,7 @@ import styles from "./List.module.css";
 import Item from "../Item/Item";
 import { connect } from "react-redux";
 import selectors from "../redux/selectors/selectors";
+import Loader from "react-loader-spinner";
 
 const List = ({ filteredArray, loading }) =>
   loading === false ? (
@@ -21,7 +22,7 @@ const List = ({ filteredArray, loading }) =>
         ))}
     </TransitionGroup>
   ) : (
-    <h1>Loading....</h1>
+    <Loader type="Puff" color="#000" height={60} width={60} />
   );
 
 const mapStateToProps = ({ stateApp }) => ({

@@ -9,7 +9,7 @@ import styles from "./App.module.css";
 import { CSSTransition } from "react-transition-group";
 import { connect } from "react-redux";
 import operations from "../redux/operations/operations";
-import selectors from '../redux/selectors/selectors'
+import selectors from "../redux/selectors/selectors";
 
 class App extends Component {
   componentDidMount() {

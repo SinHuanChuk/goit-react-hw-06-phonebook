@@ -27,6 +27,9 @@ const loading = createReducer(false, {
   [actions.addRequest]: () => true,
   [actions.addSuccess]: () => false,
   [actions.addError]: () => false,
+  [actions.deleteRequest]: () => true,
+  [actions.deleteError]: () => false,
+  [actions.deleteSuccess]: () => false,
 });
 
 export default combineReducers({

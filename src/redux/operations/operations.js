@@ -1,14 +1,13 @@
 import actions from "../actions/actions";
 import axios from "axios";
+axios.defaults.baseURL =
+  "https://my-json-server.typicode.com/SinHuanChuk/goit-react-hw-06-phonebook/array";
 
 const addPost = (name, phone) => (dispatch) => {
   dispatch(actions.addRequest());
 
   axios
-    .post(
-      "https://my-json-server.typicode.com/SinHuanChuk/goit-react-hw-06-phonebook/array",
-      { name, phone }
-    )
+    .post("/", { name, phone })
     .then(({ data }) => {
       return dispatch(actions.addSuccess(data.id, data.name, data.phone));
     })
@@ -19,9 +18,7 @@ const fetchTask = () => (dispatch) => {
   dispatch(actions.fetchRequest());
 
   axios
-    .get(
-      "https://my-json-server.typicode.com/SinHuanChuk/goit-react-hw-06-phonebook/array"
-    )
+    .get("/")
     .then(({ data }) => {
       return dispatch(actions.fetchSuccess(data));
     })
@@ -32,9 +29,7 @@ const deleteTask = (id) => (dispatch) => {
   dispatch(actions.deleteRequest());
 
   axios
-    .delete(
-      `https://my-json-server.typicode.com/SinHuanChuk/goit-react-hw-06-phonebook/array/${id}`
-    )
+    .delete(`/${id}`)
     .then(() => dispatch(actions.deleteSuccess(id)))
     .catch((err) => dispatch(actions.deleteError(err)));
 };

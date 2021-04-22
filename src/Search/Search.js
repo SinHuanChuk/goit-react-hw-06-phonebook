@@ -7,7 +7,7 @@ const Search = ({getFilterName}) => (
     <div className = {styles.container}>
         <div className = {styles.wrapper}>
             <p className = {styles.text}>find contact by name</p>
-            <input className = {styles.input} onChange = {({target}) => getFilterName(target.value)} type ='text'placeholder = 'search contact' />
+            <input className = {styles.input} onChange = {({target}) => getFilterName(target.value.toLowerCase())} type ='text'placeholder = 'search contact' />
         </div>
     </div>
 )
